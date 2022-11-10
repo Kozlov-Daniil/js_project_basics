@@ -254,5 +254,61 @@ console.log(kit)
 
 //PROTOTYPES
 // __proto__
+//Object.getPrototypeOf
+
+function Snake(name, color){
+    this.name = name
+    this.color = color
+}
+
+Snake.prototype.voice = function() {
+    console.log(`Snake ${this.name} says shh`)
+}
+
+const snake = new Snake('Zmeya', 'grey')
+console.log(Snake.prototype)
+console.log(snake)
+console.log(snake.__proto__ === Snake.prototype) 
+console.log(snake.constructor)
+//Snake.voice()
+
+
+function Persons(){}
+    Persons.prototype.legs = 2
+    Persons.prototype.skin = 'white'
+
+const personss = new Persons()
+personss.name = 'Eagle'
+
+console.log('skin' in personss)
+console.log(personss.legs)
+console.log(personss.eyes)
+console.log(personss.name)
+
+console.log(personss.hasOwnProperty('name'))
+console.log(personss.hasOwnProperty('skin'))
+
+//Object.create()
+let proto = {year: 2020}
+const myYear = Object.create(proto)
+
+console.log(myYear.year)
+console.log(myYear.hasOwnProperty('year'))
+console.log(myYear.__proto__ === proto)
+proto.year = 2200
+console.log(myYear.year)
+proto = {year: 999}
+console.log(proto)
+
+
+//ASYNC
+
+const first = () => console.log('First')
+const second = () => console.log('Second')
+const third = () => console.log('Third')
+
+first()
+setTimeout(second, 0)
+third()
 
 
